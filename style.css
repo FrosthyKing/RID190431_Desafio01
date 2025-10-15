@@ -1,0 +1,193 @@
+*{
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+}
+body{
+/* "{}" aplica em tudo, "body{}" aplica somente no corpo do projeto, o que acredito ser mais eficiente*/
+font-family: "inter", sans-serif;
+line-height: 1.6;
+}
+/*aqui vai algumas das pesquisas que comentei*/
+.container-geral{
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+.cabecalho-principal{
+color: #FFFFFF;
+background-color: #303030;
+padding: 50px 0;
+text-align: left;
+}
+.cabecalho-principal h1{
+/*motivo do (rem), ele é relativo ao font-size, que tem como raiz o html. Ou seja ele varia dependendo do padrão do dispositivo (normalmente vale 16px cada "rem")*/
+font-size: 3rem;
+font-weight: 500;
+margin-bottom: 10px;
+padding-left: 50px;
+letter-spacing: 1px;
+margin-top: 130px;
+}
+.cabecalho-principal p{
+font-size: 1rem;
+font-weight: 400;
+margin-bottom: 60px; 
+padding-left: 50px;
+opacity: 0.8;
+}
+
+/* 2* secão */
+.secao-estatisticas{
+background-color: #F9F9F9;
+padding: 60px 0;
+}
+.estatisticas-grid{
+color: black;
+display: grid;
+/* aqui vai outra pesquisa, e essa foi 
+bem assustadora kk, "repita(colunas automaticamente,
+com um tamanho minimo de(250px, a cada coluna)), 
+existem outros termos mais corretos para o significado, 
+mas a base eu entendi, teste o zoom na pagina para entender*/
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/*"vala" entre elementos*/
+gap: 40px;
+padding-left: 140px;
+}
+
+/* 3* secão */
+.secao-sobre{
+background-color: #FFFFFF;
+padding: 80px 0;
+color: #000000;
+}
+.sobre-grid{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+align-items: center;
+padding-left: 50px;
+    
+}
+.sobre-texto h2{
+font-size: 1.9rem;
+margin-bottom: 10px;
+font-weight: 500;
+line-height: 1;
+
+}
+.sobre-texto p{
+font-size: 1.1rem;
+line-height: 1.2;
+font-weight: 350;
+}
+.sobre-imagem{
+display: flex;
+justify-content: center;
+}
+.sobre-imagem img{
+width: 100%;
+max-width: 400px;
+height: auto;
+border-radius: 15px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 4* secão */
+
+/* ponto importante, aqui deveria ter uma 
+fonte diferente do restante "Raleway" mas 
+como eu teria que baixar/copiar ela da internet e 
+adicionar no html e depois aqui no css, sem ter 
+certeza de que isso era o desejo do avaliador, 
+já que na descrição afirmava que deveriamos usar 
+somente a fonte "inter" resolvi deixar do jeito que esta*/
+
+.secao-contato{
+padding: 80px 0;
+background-color: #303030;   
+color: #FFFFFF;
+text-align: center;
+}
+.secao-contato h2{
+font-size: 2rem;
+margin-bottom: 40px;
+font-weight: 700;
+}
+.formulario-contato{
+max-width: 450px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 50px;
+}
+
+.formulario-contato input{
+padding: 15px 20px;
+border: none;
+border-radius: 5px;
+font-size: 1rem;
+background-color: #FFFFFF;
+}
+/*ok, definitivamente aprender como usar isso foi algo que eu não esperava*/
+.formulario-contato input::placeholder {
+    font-weight: 700;
+    color: #0000004D;
+}
+/*causei um problema com
+display: flex;
+flex-direction: column; 
+e o 
+align-self: flex-start; 
+foi a solução*/
+.formulario-contato button{
+padding: 15px 50px;
+align-self: flex-start;
+/*essa marigin: 0 auto; me poupou algumas dores de cabeça*/
+margin: 0 auto;
+background-color: #C07212;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 1.1rem;
+font-weight: bold;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+.formulario-contato button:hover {
+background-color: #cc7409;
+transform: translateY(-2px);
+box-shadow: 0 5px 15px #c0721249
+}
+
+/* Responsividade, aprendida com meus colegas de curso...*/
+/* ATENÇÃO: A classe .hero-section não existe no seu HTML. Troquei por .cabecalho-principal para funcionar. */
+@media (max-width: 768px) {
+.cabecalho-principal h1 {
+font-size: 2.2rem;
+}}
+
+
+/* Animações suaves */
+.cabecalho-principal,
+.secao-estatisticas,
+.secao-sobre,
+.secao-contato {
+transition: all 0.3s ease;
+}
+
+.estatisticas-item,
+.sobre-texto,
+.sobre-imagem {
+transition: transform 0.3s ease;
+}
+
+.estatisticas-item:hover {
+transform: translateY(-5px);
+}
+
+.sobre-imagem:hover img {
+transform: scale(1.05);
+transition: transform 0.3s ease;
+}
